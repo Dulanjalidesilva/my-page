@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="si">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Be Charmed | Bouquets • Earrings • Gift Boxes</title>
+
+  <style>
+    :root{--bg:#fff;--text:#111;--muted:#666;--card:#f6f6f7;--btn:#111;--btnText:#fff;--line:#e7e7ea}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--text)}
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 16px}
+    .nav{display:flex;gap:14px;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#ffd1dc,#e6d6ff);display:inline-block}
+    .brand h1{font-size:16px;margin:0;letter-spacing:.3px}
+    .links{display:flex;gap:14px;flex-wrap:wrap}
+    .links a{color:var(--text);text-decoration:none;font-size:14px;opacity:.85}
+    .links a:hover{opacity:1;text-decoration:underline}
+
+    .hero{padding:34px 0}
+    .heroCard{background:linear-gradient(135deg,#fff5f7,#f4f0ff);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:10px}
+    .heroTitle{font-size:28px;line-height:1.15;margin:0}
+    .heroSub{margin:0;color:var(--muted)}
+    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn{border:0;border-radius:12px;padding:12px 14px;cursor:pointer;font-weight:600}
+    .btn.primary{background:var(--btn);color:var(--btnText)}
+    .btn.ghost{background:#fff;border:1px solid var(--line)}
+
+    section{padding:18px 0}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .card{grid-column:span 4;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px}
+    @media (max-width:900px){.card{grid-column:span 6}}
+    @media (max-width:560px){.card{grid-column:span 12}}
+    .cat{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .pill{font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+    .title{font-size:20px;margin:0 0 6px}
+    .muted{color:var(--muted);margin:0}
+
+    .products{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .p{grid-column:span 4;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+    @media (max-width:900px){.p{grid-column:span 6}}
+    @media (max-width:560px){.p{grid-column:span 12}}
+
+    .pimg{width:100%;height:170px;object-fit:cover;display:block;background:#f3f3f3}
+    .pc{padding:12px}
+    .pt{margin:0;font-size:16px}
+    .pd{margin:6px 0 10px;color:var(--muted);font-size:13px}
+    .priceRow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .price{font-weight:800}
+    .small{font-size:12px;color:var(--muted)}
+
+    footer{border-top:1px solid var(--line);margin-top:18px}
+    .two{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+    @media (max-width:800px){.two{grid-template-columns:1fr}}
+    .box{border:1px solid var(--line);border-radius:18px;padding:14px;background:#fff}
+    .floatWA{position:fixed;right:16px;bottom:16px;background:#25D366;color:#fff;text-decoration:none;padding:12px 14px;border-radius:999px;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <span class="logo"></span>
+        <h1>Be Charmed</h1>
+      </div>
+      <nav class="links">
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#delivery">Delivery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <div class="heroCard">
+        <h2 class="heroTitle">Bouquets • Earrings • Gift Boxes<br/>අලංකාර තෑගි එක තැනකින් ✨</h2>
+        <p class="heroSub">Order කරන්න ලේසි — product එක තෝරලා WhatsApp එකෙන් confirm කරන්න.</p>
+        <div class="ctaRow">
+          <button class="btn primary" onclick="document.querySelector('#shop').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+          <button class="btn ghost" onclick="openCatalog()">WhatsApp Catalog</button>
+        </div>
+        <p class="small">Custom orders available (colors / message card / wrapping)</p>
+      </div>
+    </div>
+
+    <section class="grid">
+      <div class="card">
+        <div class="cat"><h3 class="title">Flower Bouquets</h3><span class="pill">Ribbon & Pipe cleaner</span></div>
+        <p class="muted">Birthday • Anniversary • Surprise</p>
+      </div>
+      <div class="card">
+        <div class="cat"><h3 class="title">Earrings</h3><span class="pill">Handpicked</span></div>
+        <p class="muted">Daily wear • Party • Gifts</p>
+      </div>
+      <div class="card">
+        <div class="cat"><h3 class="title">Gift Boxes</h3><span class="pill">Ready to gift</span></div>
+        <p class="muted">Customized boxes with note card</p>
+      </div>
+    </section>
+
+    <section id="shop">
+      <h2 class="title">Best Sellers</h2>
+      <p class="muted">Products එකක් click කරලා WhatsApp එකෙන් order කරන්න.</p>
+      <div class="products" id="productGrid"></div>
+    </section>
+
+    <section class="two" id="about">
+      <div class="box">
+        <h2 class="title">About Be Charmed</h2>
+        <p class="muted">
+          Be Charmed කියන්නේ simple + elegant gifts හදා දෙන brand එකක්.
+          (මෙතැනට ඔයාගේ brand story එක දාන්න.)
+        </p>
+        <p class="muted">✨ Handmade • Neat packaging • Fast replies</p>
+      </div>
+
+      <div class="box" id="delivery">
+        <h2 class="title">Delivery & Payments</h2>
+        <p class="muted">• Delivery areas: (කලාප දාන්න)</p>
+        <p class="muted">• Delivery fee: (දාලා තියන්න)</p>
+        <p class="muted">• Payments: Cash on delivery / Bank transfer / (වෙනත්)</p>
+      </div>
+    </section>
+
+    <section id="contact" class="box">
+      <h2 class="title">Contact</h2>
+      <p class="muted">WhatsApp එකෙන් order කරන්න / inquiry කරන්න.</p>
+      <div class="ctaRow">
+        <button class="btn primary" onclick="openWhatsApp()">Message on WhatsApp</button>
+        <button class="btn ghost" onclick="copyNumber()">Copy Number</button>
+      </div>
+      <p class="small" id="copyStatus"></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="muted">© <span id="yr"></span> Be Charmed • Powered by WhatsApp Orders</p>
+    </div>
+  </footer>
+
+  <a class="floatWA" href="https://wa.me/c/94767052253" target="_blank" rel="noopener">WhatsApp</a>
+
+  <script>
+    // WhatsApp
+    const WA_CATALOG = "https://wa.me/c/94767052253";
+    const WA_NUMBER_DISPLAY = "076705253"; // digits අඩු නම් update කරන්න
+    const WA_CHAT = "https://wa.me/94767052253?text=";
+
+    // ✅ මෙතන තමයි images දාන්නේ (product එකට image path එක)
+    // images folder එකට දාපු file names ටික exact match වෙන්න ඕන
+    const products = [
+      {
+        id:"BQT-01",
+        name:"Single Rose Bouquet (Red)",
+        cat:"Bouquet",
+        price:"LKR 150",
+        desc:"Ribbon rose bouquet • Perfect small gift",
+        img:"rose-bouquet.jpeg"
+      },
+      {
+        id:"BQT-02",
+        name:"Blue & White Rose Bouquet",
+        cat:"Bouquet",
+        price:"LKR 450",
+        desc:"Elegant blue-white theme • Neat wrapping",
+        img:"WhatsApp Image 2026-01-21 at 19.52.16.jpeg"
+      },
+      {
+        id:"BQT-03",
+        name:"Red & Yellow Rose Bouquet",
+        cat:"Bouquet",
+        price:"LKR 650",
+        desc:"Bright colors • Premium black wrapping",
+        img:"WhatsApp Image 2026-01-21 at 19.52.17 (1).jpeg"
+      },
+      {
+        id:"BOX-01",
+        name:"Gift Box (Pink Theme)",
+        cat:"Gift Box",
+        price:"LKR 500",
+        desc:"Customized items + note card • Ready to gift",
+        img:"WhatsApp Image 2026-01-21 at 19.52.17 (2).jpeg"
+      },
+      {
+        id:"BQT-04",
+        name:"Luxury Black Wrap (Red Roses)",
+        cat:"Bouquet",
+        price:"LKR 800",
+        desc:"Luxury look • Best for special occasions",
+        img:"WhatsApp Image 2026-01-21 at 19.52.18 (1).jpeg"
+      },
+      {
+        id:"BQT-05",
+        name:"Pink & White Rose Bouquet",
+        cat:"Bouquet",
+        price:"LKR 550",
+        desc:"Sweet pink-white theme • Beautiful wrap",
+        img:"WhatsApp Image 2026-01-21 at 19.52.18 (2).jpeg"
+      },
+      {
+        id:"BQT-05",
+        name:"Pink & White Rose Bouquet",
+        cat:"Bouquet",
+        price:"LKR 550",
+        desc:"Sweet pink-white theme • Beautiful wrap",
+        img:"WhatsApp Image 2026-01-21 at 19.52.18.jpeg"
+      }
+
+      
+    ];
+
+    // Render products
+    const grid = document.getElementById("productGrid");
+    products.forEach(p => {
+      const el = document.createElement("div");
+      el.className = "p";
+      el.innerHTML = `
+        <img class="pimg" src="${p.img}" alt="${p.name}">
+        <div class="pc">
+          <p class="pt">${p.name}</p>
+          <p class="pd">${p.desc}</p>
+          <div class="priceRow">
+            <span class="price">${p.price}</span>
+            <button class="btn primary" style="padding:10px 12px" onclick="order('${p.id}')">Order</button>
+          </div>
+          <p class="small">Code: ${p.id} • Category: ${p.cat}</p>
+        </div>
+      `;
+      grid.appendChild(el);
+    });
+
+    function order(code){
+      const prod = products.find(x => x.id === code);
+      const msg =
+`Hi Be Charmed! I want to order:
+
+• ${prod.name}
+• Code: ${prod.id}
+• Price: ${prod.price}
+
+Delivery area:
+Preferred date:
+Name: `;
+      window.open(WA_CHAT + encodeURIComponent(msg), "_blank");
+    }
+
+    function openCatalog(){ window.open(WA_CATALOG, "_blank"); }
+
+    function openWhatsApp(){
+      const msg = "Hi Be Charmed! I want to know more about your products.";
+      window.open(WA_CHAT + encodeURIComponent(msg), "_blank");
+    }
+
+    async function copyNumber(){
+      try{
+        await navigator.clipboard.writeText(WA_NUMBER_DISPLAY);
+        document.getElementById("copyStatus").textContent = "Number copied ✅";
+      }catch(e){
+        document.getElementById("copyStatus").textContent = "Copy failed — please copy manually: " + WA_NUMBER_DISPLAY;
+      }
+    }
+
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
