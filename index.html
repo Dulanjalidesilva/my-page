@@ -6,40 +6,137 @@
   <title>Be Charmed | Bouquets • Earrings • Gift Boxes</title>
 
   <style>
-    :root{--bg:#fff;--text:#111;--muted:#666;--card:#f6f6f7;--btn:#111;--btnText:#fff;--line:#e7e7ea}
+    :root{
+      --bg:#fff7fb;
+      --text:#1a1a1a;
+      --muted:#7a4b5a;
+      --card:#ffe9f3;
+      --btn:#e91e63;
+      --btnText:#fff;
+      --line:#ffd0e3;
+      --soft:#fff0f7;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--text)}
-    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:var(--bg);
+      color:var(--text)
+    }
+
+    header{
+      position:sticky;top:0;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      z-index:5
+    }
     .wrap{max-width:1100px;margin:0 auto;padding:18px 16px}
     .nav{display:flex;gap:14px;align-items:center;justify-content:space-between}
+
     .brand{display:flex;align-items:center;gap:10px}
-    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#ffd1dc,#e6d6ff);display:inline-block}
+    .logoImg{
+      width:40px;height:40px;
+      border-radius:14px;
+      object-fit:cover;
+      border:1px solid var(--line);
+      background:var(--soft);
+      display:block;
+    }
     .brand h1{font-size:16px;margin:0;letter-spacing:.3px}
+
     .links{display:flex;gap:14px;flex-wrap:wrap}
     .links a{color:var(--text);text-decoration:none;font-size:14px;opacity:.85}
     .links a:hover{opacity:1;text-decoration:underline}
 
     .hero{padding:34px 0}
-    .heroCard{background:linear-gradient(135deg,#fff5f7,#f4f0ff);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:10px}
+    .heroCard{
+      background:linear-gradient(135deg,#fff0f7,#ffe1f0);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px;
+      display:grid;
+      gap:10px
+    }
     .heroTitle{font-size:28px;line-height:1.15;margin:0}
     .heroSub{margin:0;color:var(--muted)}
     .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .btn{border:0;border-radius:12px;padding:12px 14px;cursor:pointer;font-weight:600}
+
+    .btn{
+      border:0;border-radius:12px;
+      padding:12px 14px;
+      cursor:pointer;font-weight:700
+    }
     .btn.primary{background:var(--btn);color:var(--btnText)}
-    .btn.ghost{background:#fff;border:1px solid var(--line)}
+    .btn.primary:hover{filter:brightness(.95)}
+    .btn.ghost{background:#fff;border:1px solid var(--line);color:var(--text)}
+    .btn.ghost:hover{background:var(--soft)}
 
     section{padding:18px 0}
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-    .card{grid-column:span 4;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px}
-    @media (max-width:900px){.card{grid-column:span 6}}
-    @media (max-width:560px){.card{grid-column:span 12}}
-    .cat{display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .pill{font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+
+    /* ✅ category cards become buttons */
+    .catBtn{
+      grid-column:span 3;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      cursor:pointer;
+      text-align:left;
+      transition:transform .05s ease, background .15s ease, border-color .15s ease;
+    }
+    .catBtn:hover{transform:translateY(-1px)}
+    .catBtn.active{
+      background:#fff;
+      border-color:#ff6aa2;
+      box-shadow:0 10px 22px rgba(233,30,99,.12);
+    }
+
+    @media (max-width:900px){.catBtn{grid-column:span 6}}
+    @media (max-width:560px){.catBtn{grid-column:span 12}}
+
+    .catRow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .pill{
+      font-size:12px;
+      color:var(--muted);
+      background:#fff;
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px
+    }
     .title{font-size:20px;margin:0 0 6px}
     .muted{color:var(--muted);margin:0}
 
+    .filterBar{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin:10px 0 14px;
+    }
+    .chip{
+      border:1px solid var(--line);
+      background:#fff;
+      padding:8px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:700;
+      color:var(--text);
+    }
+    .chip.active{
+      background:var(--btn);
+      color:var(--btnText);
+      border-color:transparent;
+    }
+
     .products{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-    .p{grid-column:span 4;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+    .p{
+      grid-column:span 4;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden
+    }
     @media (max-width:900px){.p{grid-column:span 6}}
     @media (max-width:560px){.p{grid-column:span 12}}
 
@@ -47,15 +144,30 @@
     .pc{padding:12px}
     .pt{margin:0;font-size:16px}
     .pd{margin:6px 0 10px;color:var(--muted);font-size:13px}
+
     .priceRow{display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .price{font-weight:800}
+    .price{font-weight:900;color:#c2185b}
     .small{font-size:12px;color:var(--muted)}
 
-    footer{border-top:1px solid var(--line);margin-top:18px}
+    footer{border-top:1px solid var(--line);margin-top:18px;background:#fff}
     .two{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
     @media (max-width:800px){.two{grid-template-columns:1fr}}
     .box{border:1px solid var(--line);border-radius:18px;padding:14px;background:#fff}
-    .floatWA{position:fixed;right:16px;bottom:16px;background:#25D366;color:#fff;text-decoration:none;padding:12px 14px;border-radius:999px;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+
+    .floatWA{
+      position:fixed;right:16px;bottom:16px;
+      background:#25D366;color:#fff;text-decoration:none;
+      padding:12px 14px;border-radius:999px;font-weight:900;
+      box-shadow:0 8px 20px rgba(0,0,0,.18)
+    }
+
+    .empty{
+      padding:14px;
+      border:1px dashed var(--line);
+      border-radius:18px;
+      background:#fff;
+      color:var(--muted);
+    }
   </style>
 </head>
 
@@ -63,7 +175,8 @@
   <header>
     <div class="wrap nav">
       <div class="brand">
-        <span class="logo"></span>
+        <!-- ✅ Logo image -->
+        <img class="logoImg" src="logo.jpeg" alt="Be Charmed Logo" />
         <h1>Be Charmed</h1>
       </div>
       <nav class="links">
@@ -88,25 +201,51 @@
       </div>
     </div>
 
-    <section class="grid">
-      <div class="card">
-        <div class="cat"><h3 class="title">Flower Bouquets</h3><span class="pill">Ribbon & Pipe cleaner</span></div>
+    <!-- ✅ Categories (click to filter) -->
+    <section class="grid" aria-label="Categories">
+      <button class="catBtn active" id="catAll" onclick="setCategory('All')">
+        <div class="catRow"><h3 class="title">All</h3><span class="pill">Show everything</span></div>
+        <p class="muted">All products එකම එක තැනක</p>
+      </button>
+
+      <button class="catBtn" id="catRibbon" onclick="setCategory('Ribbon Flower Bouquet')">
+        <div class="catRow"><h3 class="title">Ribbon Flower Bouquet</h3><span class="pill">Ribbon</span></div>
         <p class="muted">Birthday • Anniversary • Surprise</p>
-      </div>
-      <div class="card">
-        <div class="cat"><h3 class="title">Earrings</h3><span class="pill">Handpicked</span></div>
-        <p class="muted">Daily wear • Party • Gifts</p>
-      </div>
-      <div class="card">
-        <div class="cat"><h3 class="title">Gift Boxes</h3><span class="pill">Ready to gift</span></div>
+      </button>
+
+      <button class="catBtn" id="catPipe" onclick="setCategory('Pipe Cleaner Flower Bouquet')">
+        <div class="catRow"><h3 class="title">Pipe Cleaner Flower Bouquet</h3><span class="pill">Pipe Cleaner</span></div>
+        <p class="muted">Cute • Colorful • Handmade</p>
+      </button>
+
+      <button class="catBtn" id="catBox" onclick="setCategory('Gift Box')">
+        <div class="catRow"><h3 class="title">Gift Box</h3><span class="pill">Ready to gift</span></div>
         <p class="muted">Customized boxes with note card</p>
-      </div>
+      </button>
+
+      <button class="catBtn" id="catEar" onclick="setCategory('Earrings')">
+        <div class="catRow"><h3 class="title">Earrings</h3><span class="pill">Handpicked</span></div>
+        <p class="muted">Daily wear • Party • Gifts</p>
+      </button>
     </section>
 
     <section id="shop">
       <h2 class="title">Best Sellers</h2>
-      <p class="muted">Products එකක් click කරලා WhatsApp එකෙන් order කරන්න.</p>
+      <p class="muted">Category එකක් click කරලා ඒ category එකේ products විතරක් බලන්න.</p>
+
+      <!-- optional mini filter chips (same as category buttons) -->
+      <div class="filterBar" id="chipBar">
+        <button class="chip active" data-cat="All" onclick="setCategory('All')">All</button>
+        <button class="chip" data-cat="Ribbon Flower Bouquet" onclick="setCategory('Ribbon Flower Bouquet')">Ribbon Bouquets</button>
+        <button class="chip" data-cat="Pipe Cleaner Flower Bouquet" onclick="setCategory('Pipe Cleaner Flower Bouquet')">Pipe Cleaner Bouquets</button>
+        <button class="chip" data-cat="Gift Box" onclick="setCategory('Gift Box')">Gift Boxes</button>
+        <button class="chip" data-cat="Earrings" onclick="setCategory('Earrings')">Earrings</button>
+      </div>
+
       <div class="products" id="productGrid"></div>
+      <div id="emptyState" class="empty" style="display:none;margin-top:14px;">
+        මේ category එකට products තාම add කරලා නැහැ. (Products array එකට දාන්න ✅)
+      </div>
     </section>
 
     <section class="two" id="about">
@@ -149,32 +288,31 @@
   <script>
     // WhatsApp
     const WA_CATALOG = "https://wa.me/c/94767052253";
-    const WA_NUMBER_DISPLAY = "076705253"; // digits අඩු නම් update කරන්න
+    const WA_NUMBER_DISPLAY = "0767052253";
     const WA_CHAT = "https://wa.me/94767052253?text=";
 
-    // ✅ මෙතන තමයි images දාන්නේ (product එකට image path එක)
-    // images folder එකට දාපු file names ටික exact match වෙන්න ඕන
+    // ✅ Products (cat field එක categories වල නමට EXACT match වෙන්න ඕන)
     const products = [
       {
-        id:"BQT-01",
+        id:"RIB-01",
         name:"Single Rose Bouquet (Red)",
-        cat:"Bouquet",
+        cat:"Ribbon Flower Bouquet",
         price:"LKR 150",
         desc:"Ribbon rose bouquet • Perfect small gift",
         img:"rose-bouquet.jpeg"
       },
       {
-        id:"BQT-02",
+        id:"RIB-02",
         name:"Blue & White Rose Bouquet",
-        cat:"Bouquet",
+        cat:"Ribbon Flower Bouquet",
         price:"LKR 150",
         desc:"Elegant blue-white theme • Neat wrapping",
         img:"WhatsApp Image 2026-01-21 at 19.52.16.jpeg"
       },
       {
-        id:"BQT-03",
+        id:"RIB-03",
         name:"Red & Yellow Rose Bouquet",
-        cat:"Bouquet",
+        cat:"Ribbon Flower Bouquet",
         price:"LKR 850",
         desc:"Bright colors • Premium black wrapping",
         img:"WhatsApp Image 2026-01-21 at 19.52.17 (1).jpeg"
@@ -183,57 +321,101 @@
         id:"BOX-01",
         name:"Gift Box (Pink Theme)",
         cat:"Gift Box",
-        price:"LKR 1200",
+        price:"LKR 500",
         desc:"Customized items + note card • Ready to gift",
         img:"WhatsApp Image 2026-01-21 at 19.52.17 (2).jpeg"
       },
       {
-        id:"BQT-04",
+        id:"RIB-04",
         name:"Luxury Black Wrap (Red Roses)",
-        cat:"Bouquet",
+        cat:"Ribbon Flower Bouquet",
         price:"LKR 800",
         desc:"Luxury look • Best for special occasions",
         img:"WhatsApp Image 2026-01-21 at 19.52.18 (1).jpeg"
       },
       {
-        id:"BQT-05",
+        id:"RIB-05",
         name:"Pink & White Rose Bouquet",
-        cat:"Bouquet",
+        cat:"Ribbon Flower Bouquet",
         price:"LKR 550",
         desc:"Sweet pink-white theme • Beautiful wrap",
         img:"WhatsApp Image 2026-01-21 at 19.52.18 (2).jpeg"
       },
       {
-        id:"BQT-05",
-        name:"Pink & White Rose Bouquet",
-        cat:"Bouquet",
-        price:"LKR 550",
-        desc:"Sweet pink-white theme • Beautiful wrap",
+        id:"PIP-01",
+        name:"Pipe Cleaner Flower Bouquet (Custom)",
+        cat:"Pipe Cleaner Flower Bouquet",
+        price:"LKR 650",
+        desc:"Custom colors • Cute handmade bouquet",
         img:"WhatsApp Image 2026-01-21 at 19.52.18.jpeg"
-      }
+      },
 
-      
+      // ✅ Earrings example (ඔයාට ඕන නම් add කරන්න)
+      // {
+      //   id:"EAR-01",
+      //   name:"Pearl Stud Earrings",
+      //   cat:"Earrings",
+      //   price:"LKR 300",
+      //   desc:"Minimal look • Daily wear",
+      //   img:"earrings-01.jpeg"
+      // }
     ];
 
-    // Render products
+    let activeCategory = "All";
+
     const grid = document.getElementById("productGrid");
-    products.forEach(p => {
-      const el = document.createElement("div");
-      el.className = "p";
-      el.innerHTML = `
-        <img class="pimg" src="${p.img}" alt="${p.name}">
-        <div class="pc">
-          <p class="pt">${p.name}</p>
-          <p class="pd">${p.desc}</p>
-          <div class="priceRow">
-            <span class="price">${p.price}</span>
-            <button class="btn primary" style="padding:10px 12px" onclick="order('${p.id}')">Order</button>
+    const emptyState = document.getElementById("emptyState");
+
+    function renderProducts(){
+      grid.innerHTML = "";
+      const list = (activeCategory === "All")
+        ? products
+        : products.filter(p => p.cat === activeCategory);
+
+      if(list.length === 0){
+        emptyState.style.display = "block";
+        return;
+      }
+      emptyState.style.display = "none";
+
+      list.forEach(p => {
+        const el = document.createElement("div");
+        el.className = "p";
+        el.innerHTML = `
+          <img class="pimg" src="${p.img}" alt="${p.name}">
+          <div class="pc">
+            <p class="pt">${p.name}</p>
+            <p class="pd">${p.desc}</p>
+            <div class="priceRow">
+              <span class="price">${p.price}</span>
+              <button class="btn primary" style="padding:10px 12px" onclick="order('${p.id}')">Order</button>
+            </div>
+            <p class="small">Code: ${p.id} • Category: ${p.cat}</p>
           </div>
-          <p class="small">Code: ${p.id} • Category: ${p.cat}</p>
-        </div>
-      `;
-      grid.appendChild(el);
-    });
+        `;
+        grid.appendChild(el);
+      });
+    }
+
+    function setCategory(cat){
+      activeCategory = cat;
+
+      // ✅ highlight category cards
+      document.querySelectorAll(".catBtn").forEach(b => b.classList.remove("active"));
+      if(cat === "All") document.getElementById("catAll").classList.add("active");
+      if(cat === "Ribbon Flower Bouquet") document.getElementById("catRibbon").classList.add("active");
+      if(cat === "Pipe Cleaner Flower Bouquet") document.getElementById("catPipe").classList.add("active");
+      if(cat === "Gift Box") document.getElementById("catBox").classList.add("active");
+      if(cat === "Earrings") document.getElementById("catEar").classList.add("active");
+
+      // ✅ highlight chips
+      document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+      document.querySelectorAll(`.chip[data-cat="${CSS.escape(cat)}"]`).forEach(c => c.classList.add("active"));
+
+      // ✅ go to shop section and render
+      document.querySelector('#shop').scrollIntoView({behavior:'smooth'});
+      renderProducts();
+    }
 
     function order(code){
       const prod = products.find(x => x.id === code);
@@ -243,6 +425,7 @@
 • ${prod.name}
 • Code: ${prod.id}
 • Price: ${prod.price}
+• Category: ${prod.cat}
 
 Delivery area:
 Preferred date:
@@ -267,8 +450,7 @@ Name: `;
     }
 
     document.getElementById("yr").textContent = new Date().getFullYear();
+    renderProducts(); // initial load
   </script>
 </body>
 </html>
-
-
